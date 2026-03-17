@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="style.css" rel="stylesheet" />
+    <title>Cars!</title>
+</head>
+<body>
+    <div class="card">
+        <h2>🚗 Car Input</h2>
+
+        <label>
+            Make
+            <input type="text" id="make" placeholder="e.g. Toyota" />
+        </label>
+
+        <label>
+            Model
+            <input type="text" id="model" placeholder="e.g. Supra" />
+        </label>
+
+        <label>
+            Year
+            <input type="number" id="year" placeholder="e.g. 2024" min="1886" max="2100" />
+        </label>
+
+        <button id="saveCarBtn">Save Car</button>
+
+        <pre id="output"></pre>
+    </div>
+    <div id="carsList"></div>
+    <script src="app.js"></script>
+</body>
+</html>

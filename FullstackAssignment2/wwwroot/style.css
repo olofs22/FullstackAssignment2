@@ -1,0 +1,89 @@
+﻿body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: system-ui, sans-serif;
+    background: #f5f5f5;
+}
+
+.card {
+    background: #fff;
+    border: 2px solid #111;
+    border-radius: 16px;
+    box-shadow: 5px 5px 0 #111;
+    padding: 2rem;
+    width: clamp(300px, 90vw, 400px);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #555;
+}
+
+input {
+    padding: 0.65rem 0.9rem;
+    border: 2px solid #111;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: #f9f9f9;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+    input:focus {
+        outline: none;
+        background: #fff;
+        box-shadow: 3px 3px 0 #111;
+        transform: translateY(-1px);
+    }
+
+button {
+    padding: 0.75rem;
+    border: 2px solid #111;
+    border-radius: 10px;
+    background: #22c55e;
+    color: #111;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #111;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+    button:hover {
+        transform: translate(-1px, -1px);
+        box-shadow: 5px 5px 0 #111;
+    }
+
+    button:active {
+        transform: translate(1px, 1px);
+        box-shadow: 2px 2px 0 #111;
+    }
+
+#output {
+    background: #f5f5f5;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 0.9rem;
+    font-size: 0.85rem;
+    font-family: monospace;
+    white-space: pre;
+    display: none;
+}
