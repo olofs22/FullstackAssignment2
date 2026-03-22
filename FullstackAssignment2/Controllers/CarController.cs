@@ -23,8 +23,7 @@ namespace FullstackAssignment2.Controllers
         [HttpGet("{id:int}")] 
         public async Task<ActionResult<ResponseCarDTO>> GetById(int id)
         {
-            var car = await _carService.GetById(id);
-            return Ok(car);
+            return Ok(await _carService.GetById(id));
         }
 
         [HttpPost] 
@@ -34,21 +33,16 @@ namespace FullstackAssignment2.Controllers
             return CreatedAtAction(nameof(GetById), new { id = createdCar.Id }, createdCar);
         }
 
-        [HttpPut("{id:int}")] 
+        [HttpPut("{id:int}")]
         public async Task<ActionResult<ResponseCarDTO>> Update(int id, UpdateCarDTO ucdto)
         {
-            var updatedCar = await _carService.Update(id, ucdto);
-
-            if (updatedCar == null) return NotFound();
-
-            return Ok(updatedCar);
+            return Ok(await _carService.Update(id, ucdto));
         }
 
-        [HttpDelete("{id:int}")] 
+        [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {
-            if (!await _carService.Delete(id))
-                return NotFound();
+            await _carService.Delete(id);
             return NoContent();
         }
     }
