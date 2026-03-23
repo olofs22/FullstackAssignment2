@@ -13,12 +13,15 @@ This program is a simple form storing information about an entity with three att
 ## Getting Started
 
 ```bash
-git clone <your-repo-url>
+git clone <repourl>
 cd FullstackAssignment2
 dotnet ef database update
 ```
 Then launch in Visual Studio or your preferred code editor.
-
+```
+Quick troubleshooting:
+Database connection errors: Change Connectionstring to custom string in appsettings.json.
+Localhost connection errors: Chosen localhost port can be occupied on your system, choose a different one in program.cs
 ---
 
 ## Endpoints
@@ -44,3 +47,4 @@ The FE and BE communicate through the API endpoints over HTTPS. The controller r
 The C# part was straightforward — setting up an API is something we have done many times. The struggle was understanding JS and diagnosing it. The most common faults were typos. This isn't a very "smart" or innvative program but I think it is well working and handles faults and issues pretty well. In the future I will focus more on creatimng apps with a real purpose, this was strictly for understanding how I connect my FE and BE.
 
 It was really fun building a fullstack program and understanding how these things connect. 🙂
+
