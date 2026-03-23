@@ -36,11 +36,11 @@ Then launch in Visual Studio or your preferred code editor.
 ---
 
 ## How the Frontend and Backend Talk
-The FE and BE communicate through the API endpoints over HTTPS. The controller receives the request and passes it to the DTO, which uses FluentValidation to check the values. The request then goes to the service, which talks to the database through EF Core. C# returns a response in JSON and `app.js` receives it and renders the frontend list.
+The FE and BE communicate through the API endpoints over HTTPS. The controller receives the request and deserializes it into a DTO, which FluentValidation validates. If valid, the controller passes it to the service, which talks to the database through EF Core. A response DTO is returned as JSON and app.js receives it and renders the frontend list.
 
 ---
 
 ## Reflection
 The C# part was straightforward — setting up an API is something we have done many times. The struggle was understanding JS and diagnosing it. The most common faults were typos. This isn't a very "smart" or innovative program but I think it is well working and handles faults and issues pretty well. In the future I will focus more on creating apps with a real purpose, this was strictly for understanding how I connect my FE and BE.
 
-It was really fun building a fullstack program and understanding how these things connect. 🙂
+It was really fun building a fullstack program and understanding how these things connect with each other. 🙂
