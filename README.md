@@ -22,6 +22,7 @@ Then launch in Visual Studio or your preferred code editor.
 Quick troubleshooting:
 Database connection errors: Change Connectionstring to custom string in appsettings.json.
 Localhost connection errors: Chosen localhost port can be occupied on your system, choose a different one in program.cs
+
 ---
 
 ## Endpoints
