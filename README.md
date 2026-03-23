@@ -4,7 +4,7 @@
 ---
 
 ## About
-This program is a simple form storing information about an entity with three attributes (four with ID). Theme: a car garage. Fill out the make, model and year — it gets stored on your local SQL database.
+This program is a simple form storing information about an entity with three attributes (four with ID). Theme: a car garage. Fill out the make, model and year — it gets stored on your local SQL database. Running full HTTPS.
 
 ---
 
