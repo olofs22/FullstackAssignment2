@@ -1,5 +1,8 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using FullstackAssignment2.Data;
 using FullstackAssignment2.Services;
+using FullstackAssignment2.Validators;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,6 +20,10 @@ builder.Services.AddCors(options =>
         .AllowAnyHeader(); ;
     });
 });
+
+builder.Services.AddValidatorsFromAssemblyContaining<CreateCarValidator>();
+
+builder.Services.AddFluentValidationAutoValidation();
 
 builder.Services.AddControllers();
 

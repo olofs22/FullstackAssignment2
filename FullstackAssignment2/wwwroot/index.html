@@ -1,34 +1,50 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
+    <title>Dream Garage</title>
     <link href="style.css" rel="stylesheet" />
-    <title>Cars!</title>
 </head>
 <body>
+
     <header>
-        <h3>Welcome, here you can make your dream garage!</h3>
+        <div>
+            <h1>Dream <span>Garage</span></h1>
+            <p>Build your collection, one car at a time.</p>
+        </div>
     </header>
+
+    <div id="error-container"></div>
+
     <div class="layout">
         <div class="card">
-            <h2>🚗 Car Input</h2>
+            <div class="card-title">Add a car</div>
             <label>
-                Make
+                <span>Make</span>
                 <input type="text" id="make" placeholder="e.g. Toyota" />
             </label>
             <label>
-                Model
+                <span>Model</span>
                 <input type="text" id="model" placeholder="e.g. Supra" />
             </label>
             <label>
-                Year
-                <input type="number" id="year" placeholder="e.g. 2024" min="1886" max="2100" />
+                <span>Year</span>
+                <input type="number" id="year" placeholder="e.g. 1993" min="1886" max="2100" />
             </label>
-            <button id="saveCarBtn">Save Car</button>
-            <pre id="output"></pre>
+            <button id="saveCarBtn">Add to Garage</button>
         </div>
-        <div id="carsList"></div>
+
+        <div>
+            <div class="list-header">Your garage</div>
+            <div id="carsList">
+                <div class="empty-state">
+                    <div class="icon">🚗</div>
+                    <div>No cars yet. Add your first one!</div>
+                </div>
+            </div>
+        </div>
     </div>
+
     <script src="app.js"></script>
 </body>
 </html>
