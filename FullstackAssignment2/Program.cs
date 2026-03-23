@@ -4,7 +4,9 @@ using FullstackAssignment2.Data;
 using FullstackAssignment2.Services;
 using FullstackAssignment2.Validators;
 using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +17,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend", policy =>
     {
         policy
-        .WithOrigins("http://localhost:5249", "http://localhost:7148")
+        .WithOrigins("https://localhost:7178")
         .AllowAnyMethod()
         .AllowAnyHeader(); ;
     });
@@ -40,6 +42,7 @@ app.UseExceptionHandler(err => err.Run(async ctx =>
     {
         KeyNotFoundException => (404, ex.Message),
         ArgumentException => (400, ex.Message),
+        JsonException jsonEx => (400, $"Invalid value for field: {jsonEx.Path?.Replace("$.", "")}. Please enter a valid number."),
         _ => (500, "An unexpected error occurred")
     };
     ctx.Response.StatusCode = status;
@@ -50,14 +53,14 @@ app.UseDefaultFiles();
 
 app.UseStaticFiles();
 
+app.UseCors("AllowFrontend");
+
+app.UseHttpsRedirection();
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
-
-app.UseCors("AllowFrontend");
-
-app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

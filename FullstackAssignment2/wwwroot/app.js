@@ -4,6 +4,18 @@ const year = document.getElementById('year');
 const carsList = document.getElementById('carsList')
 
 async function addCar() {
+
+    const yearValue = parseInt(year.value);
+    if (isNaN(yearValue)) {
+        displayErrors(["Year must be a valid number."]);
+        return;
+    }
+
+    if (!make.value.trim() || !model.value.trim()) {
+        displayErrors(["Make and Model are required."]);
+        return;
+    }
+
     const response = await fetch('/api/car', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

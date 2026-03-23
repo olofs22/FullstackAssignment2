@@ -27,14 +27,14 @@ namespace FullstackAssignment2.Controllers
         }
 
         [HttpPost] 
-        public async Task<ActionResult<ResponseCarDTO>> Create(CreateCarDTO ccdto)
+        public async Task<ActionResult<ResponseCarDTO>> Create([FromBody] CreateCarDTO ccdto)
         {
             var createdCar = await _carService.Create(ccdto);
             return CreatedAtAction(nameof(GetById), new { id = createdCar.Id }, createdCar);
         }
 
         [HttpPut("{id:int}")]
-        public async Task<ActionResult<ResponseCarDTO>> Update(int id, UpdateCarDTO ucdto)
+        public async Task<ActionResult<ResponseCarDTO>> Update(int id,[FromBody] UpdateCarDTO ucdto)
         {
             return Ok(await _carService.Update(id, ucdto));
         }
