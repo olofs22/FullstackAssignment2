@@ -17,7 +17,9 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend", policy =>
     {
         policy
-        .WithOrigins("https://localhost:7178")
+        .WithOrigins(
+                "https://localhost:5249",
+                "https://localhost:7178")
         .AllowAnyMethod()
         .AllowAnyHeader(); ;
     });
@@ -34,6 +36,8 @@ builder.Services.AddScoped<CarService>();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
+
+app.UseCors("AllowFrontend");
 
 app.UseExceptionHandler(err => err.Run(async ctx =>
 {
@@ -52,8 +56,6 @@ app.UseExceptionHandler(err => err.Run(async ctx =>
 app.UseDefaultFiles();
 
 app.UseStaticFiles();
-
-app.UseCors("AllowFrontend");
 
 app.UseHttpsRedirection();
 
