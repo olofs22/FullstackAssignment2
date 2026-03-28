@@ -29,7 +29,7 @@ namespace FullstackAssignment2.Services
             var car = await _context.Car
                 .FirstOrDefaultAsync(t => t.Id == id);
 
-            if (car == null) return null;
+            if (car == null) throw new KeyNotFoundException($"Car with Id:{id} was not found");
 
             return new ResponseCarDTO 
             {
@@ -56,7 +56,7 @@ namespace FullstackAssignment2.Services
         public async Task<ResponseCarDTO> Update(int id, UpdateCarDTO ucdto) 
         {
             var car = await _context.Car.FindAsync(id);
-            if (car == null) return null;
+            if (car == null) throw new KeyNotFoundException($"Car with Id:{id} was not found");
 
             car.Make = ucdto.Make;
             car.Model = ucdto.Model;
